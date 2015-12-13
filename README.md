@@ -2,7 +2,13 @@
 
 ## Synopsis
 
-This demo application is as an example of usage three row listview with thumbnail image, pre-populated SQLite database, an imageView, a ratingBar, a text description and a gallery to go through images.
+This applications uses Google Maps to show locations of pharmacies in city of Rijeka. When user click on marker, the name of the pharmacy and its address are shown. You can click on a info window to see more info about specific pharmacy such as: photo of the pharmacy, name, address, contacts, duty dates, working hours. User can also start navigation, send email or call chosen pharmacy.
+All data is stored in SQLite database. Internet connection is required.
+
+## Motivation
+This application was made for CASE 27 conference in Zagreb, July 2015 as an example of comparison between Android and iOS development.
+
+It demonstrates basic implementation of imageView, scrollView, imageButton, textView, alertDialog, sending data with intent, SQLite database, splash screen.
 
 ## Screenshots
 
