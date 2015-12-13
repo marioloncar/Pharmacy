@@ -1,6 +1,12 @@
 package com.mario.pharmacy;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.location.LocationManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
@@ -50,32 +56,79 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mMap = googleMap;
         mMap.setMyLocationEnabled(true);
 
-        // Add a marker in Sydney and move the camera
-        LatLng rijeka = new LatLng(45.329904, 14.438916);
-        latitudeArray = helper.getLatitude();
-        longitudeArray = helper.getLongitude();
-        name = helper.getName();
-        address = helper.getAddress();
+        checkConnectivity();
+    }
 
-        for (int i = 0; i < latitudeArray.size(); i++) {
-            latitude = Double.parseDouble(latitudeArray.get(i));
-            longitude = Double.parseDouble(longitudeArray.get(i));
-            coordinates = new LatLng(latitude, longitude);
-            mMap.addMarker(new MarkerOptions()
-                    .position(coordinates)
-                    .title(name.get(i))
-                    .snippet(address.get(i))
-                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.marker)));
-        }
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(rijeka, 15));
+    public void checkConnectivity () {
+        if (isNetworkAvailable()) {
+            // Add a marker in Sydney and move the camera
+            LatLng rijeka = new LatLng(45.329904, 14.438916);
+            latitudeArray = helper.getLatitude();
+            longitudeArray = helper.getLongitude();
+            name = helper.getName();
+            address = helper.getAddress();
 
-        mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
-            @Override
-            public void onInfoWindowClick(Marker marker) {
-                Intent intent = new Intent(getApplicationContext(), Info.class);
-                intent.putExtra("name", marker.getTitle());
-                startActivity(intent);
+            for (int i = 0; i < latitudeArray.size(); i++) {
+                latitude = Double.parseDouble(latitudeArray.get(i));
+                longitude = Double.parseDouble(longitudeArray.get(i));
+                coordinates = new LatLng(latitude, longitude);
+                mMap.addMarker(new MarkerOptions()
+                        .position(coordinates)
+                        .title(name.get(i))
+                        .snippet(address.get(i))
+                        .icon(BitmapDescriptorFactory.fromResource(R.drawable.marker)));
             }
-        });
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(rijeka, 15));
+
+            mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+                @Override
+                public void onInfoWindowClick(Marker marker) {
+                    Intent intent = new Intent(getApplicationContext(), Info.class);
+                    intent.putExtra("name", marker.getTitle());
+                    startActivity(intent);
+                }
+            });
+        } else {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setCancelable(false);
+            builder.setTitle("No internet connection");
+            builder.setMessage("Please check your internet connection and try again.");
+            builder.setPositiveButton("Retry", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    checkConnectivity(); //ponovno provjeravanje
+                    dialog.dismiss();
+
+                }
+            });
+            builder.setNegativeButton("Exit", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                }
+            });
+            builder.setNeutralButton("Settings", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    startActivity(new Intent(android.provider.Settings.ACTION_SETTINGS));
+                }
+            });
+            AlertDialog dialog = builder.create();
+            dialog.show();
+        }
+    }
+
+    private boolean isNetworkAvailable () {
+        // Using ConnectivityManager to check for Network Connection
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
     }
 }

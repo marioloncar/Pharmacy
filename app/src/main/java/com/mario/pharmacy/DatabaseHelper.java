@@ -241,7 +241,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = helper.getReadableDatabase();
         ArrayList<String> values = new ArrayList<>();
 
-        String sqlQuery = "SELECT " + DatabaseHelper.ADDRESS + "," + DatabaseHelper.PICTURE + "," + DatabaseHelper.PHONE + "," + DatabaseHelper.MAIL + "," + DatabaseHelper.WORKDAY + "," + DatabaseHelper.SATURDAY + "," + DatabaseHelper.LATITUDE +  "," + DatabaseHelper.LONGITUDE +" FROM " + DatabaseHelper.TABLE_NAME + " WHERE " + DatabaseHelper.NAME + "=\"" + name + "\";";
+        String sqlQuery = "SELECT " + DatabaseHelper.ADDRESS + "," + DatabaseHelper.PICTURE + "," + DatabaseHelper.PHONE + "," + DatabaseHelper.MAIL + "," + DatabaseHelper.WORKDAY + "," + DatabaseHelper.SATURDAY + "," + DatabaseHelper.LATITUDE + "," + DatabaseHelper.LONGITUDE + " FROM " + DatabaseHelper.TABLE_NAME + " WHERE " + DatabaseHelper.NAME + "=\"" + name + "\";";
 
         Cursor cursor = db.rawQuery(sqlQuery, null);
         cursor.moveToFirst();
@@ -256,11 +256,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             values.add(cursor.getString(7));
             cursor.moveToNext();
         }
-    cursor.close();
-    db.close();
-    return values;
+        cursor.close();
+        db.close();
+        return values;
 
-}
+    }
 
 
 }

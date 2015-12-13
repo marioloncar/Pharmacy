@@ -3,6 +3,7 @@ package com.mario.pharmacy;
 /**
  * Created by mario on 12/13/15.
  */
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,7 +20,7 @@ public class Splash extends Activity {
         setContentView(R.layout.splash);
 
         //Start activity and close it in few seconds
-        new Handler().postDelayed(new Runnable(){
+        new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 /* Create an Intent that will start the Menu-Activity. */
