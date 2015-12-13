@@ -11,5 +11,5 @@ This demo application is as an example of usage three row listview with thumbnai
 <img src="https://github.com/marioloncar/Pharmacy/blob/master/screenshots/info.png" width="190" height="320">
 <img src="https://github.com/marioloncar/Pharmacy/blob/master/screenshots/navigation_dialog.png" width="190" height="320">
 <img src="https://github.com/marioloncar/Pharmacy/blob/master/screenshots/call_dialog.png" width="190" height="320">
-<img src="https://github.com/marioloncar/Pharmacy/blob/master/screenshots/noCall_dialog.png" width="190" height="320">
 <img src="https://github.com/marioloncar/Pharmacy/blob/master/screenshots/email_dialog.png" width="190" height="320">
+<img src="https://github.com/marioloncar/Pharmacy/blob/master/screenshots/noEmail_dialog.png" width="190" height="320">
