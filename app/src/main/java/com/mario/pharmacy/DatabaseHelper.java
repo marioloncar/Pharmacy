@@ -234,15 +234,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return values;
     }
-/*
+
     //query for getting Rating from database
     public ArrayList<String> getData(String name) {
         DatabaseHelper helper = DatabaseHelper.getInstance(mContext);
         SQLiteDatabase db = helper.getReadableDatabase();
         ArrayList<String> values = new ArrayList<>();
-        String[] columns = {DatabaseHelper.ADDRESS, DatabaseHelper.PICTURE, DatabaseHelper.PHONE, DatabaseHelper.MAIL, DatabaseHelper.WORKDAY, DatabaseHelper.SATURDAY};
 
-        String sqlQuery = "SELECT " + columns + " FROM " + DatabaseHelper.TABLE_NAME + " WHERE " + DatabaseHelper.NAME + "=\"" + name + "\";";
+        String sqlQuery = "SELECT " + DatabaseHelper.ADDRESS + "," + DatabaseHelper.PICTURE + "," + DatabaseHelper.PHONE + "," + DatabaseHelper.MAIL + "," + DatabaseHelper.WORKDAY + "," + DatabaseHelper.SATURDAY + "," + DatabaseHelper.LATITUDE +  "," + DatabaseHelper.LONGITUDE +" FROM " + DatabaseHelper.TABLE_NAME + " WHERE " + DatabaseHelper.NAME + "=\"" + name + "\";";
 
         Cursor cursor = db.rawQuery(sqlQuery, null);
         cursor.moveToFirst();
@@ -253,15 +252,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             values.add(cursor.getString(3));
             values.add(cursor.getString(4));
             values.add(cursor.getString(5));
+            values.add(cursor.getString(6));
+            values.add(cursor.getString(7));
             cursor.moveToNext();
         }
-
     cursor.close();
     db.close();
-    System.out.println("VALUES->"+values);
     return values;
 
 }
-*/
+
 
 }
