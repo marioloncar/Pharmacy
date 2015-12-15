@@ -58,13 +58,17 @@ public class Info extends AppCompatActivity {
         ibPhone = (ImageButton) findViewById(R.id.ibPhone);
         ibEmail = (ImageButton) findViewById(R.id.ibEmail);
 
+        //Get pharmacy name from previous activity so we can make a query
         extras = getIntent().getExtras();
         name = extras.getString("name");
 
+        //Database query
         data = helper.getData(name);
 
+        //Convert image to int
         imageName = getResources().getIdentifier(data.get(1), "drawable", Info.this.getPackageName());
 
+        //add data to UI
         tvTitle.setText(name);
         ivPicture.setImageResource(imageName);
         tvAddress.setText(data.get(0));
@@ -73,11 +77,13 @@ public class Info extends AppCompatActivity {
         tvWorkday.setText(data.get(4));
         tvSaturday.setText(data.get(5));
 
+        //Parse String to Double so we can create LatLng object
         latitude = Double.parseDouble(data.get(6));
         longitude = Double.parseDouble(data.get(7));
 
         coordinates = new LatLng(latitude, longitude);
 
+        //handle navigation button click
         ibNavigation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,6 +107,7 @@ public class Info extends AppCompatActivity {
             }
         });
 
+        //Phone
         ibPhone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -117,7 +124,8 @@ public class Info extends AppCompatActivity {
                                     }
                                     startActivity(callIntent);
                                 } catch (Exception e) {
-                                    // no activity to handle intent. show error dialog/toast whatever
+                                    Toast.makeText(Info.this, "Greška",
+                                            Toast.LENGTH_LONG).show();
                                 }
                             }
                         })
@@ -131,6 +139,7 @@ public class Info extends AppCompatActivity {
             }
         });
 
+        //Email
         ibEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

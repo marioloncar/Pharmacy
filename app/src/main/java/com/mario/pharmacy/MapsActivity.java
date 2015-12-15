@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -38,6 +37,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+        //Make database
         helper = new DatabaseHelper(this);
 
     }
@@ -59,7 +59,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         checkConnectivity();
     }
 
-    public void checkConnectivity () {
+    public void checkConnectivity() {
         if (isNetworkAvailable()) {
             // Add a marker in Sydney and move the camera
             LatLng rijeka = new LatLng(45.329904, 14.438916);
@@ -118,7 +118,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
     }
 
-    private boolean isNetworkAvailable () {
+    private boolean isNetworkAvailable() {
         // Using ConnectivityManager to check for Network Connection
         ConnectivityManager connectivityManager
                 = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
