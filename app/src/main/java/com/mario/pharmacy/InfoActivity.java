@@ -24,7 +24,7 @@ import java.util.Objects;
 /**
  * Created by mario on 12/11/15.
  */
-public class Info extends AppCompatActivity {
+public class InfoActivity extends AppCompatActivity {
 
     Bundle extras;
     String name;
@@ -66,7 +66,7 @@ public class Info extends AppCompatActivity {
         data = helper.getData(name);
 
         //Convert image to int
-        imageName = getResources().getIdentifier(data.get(1), "drawable", Info.this.getPackageName());
+        imageName = getResources().getIdentifier(data.get(1), "drawable", InfoActivity.this.getPackageName());
 
         //add data to UI
         tvTitle.setText(name);
@@ -87,7 +87,7 @@ public class Info extends AppCompatActivity {
         ibNavigation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new AlertDialog.Builder(Info.this)
+                new AlertDialog.Builder(InfoActivity.this)
                         .setTitle("Navigacija")
                         .setMessage("Želite li pokrenuti navigaciju do adrese " + data.get(0) + "?")
                         .setPositiveButton("Da", new DialogInterface.OnClickListener() {
@@ -111,7 +111,7 @@ public class Info extends AppCompatActivity {
         ibPhone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new AlertDialog.Builder(Info.this)
+                new AlertDialog.Builder(InfoActivity.this)
                         .setTitle("Poziv")
                         .setMessage("Želite li nazvati broj " + data.get(2) + "?")
                         .setPositiveButton("Da", new DialogInterface.OnClickListener() {
@@ -119,12 +119,12 @@ public class Info extends AppCompatActivity {
                                 try {
                                     Intent callIntent = new Intent(Intent.ACTION_CALL);
                                     callIntent.setData(Uri.parse("tel:" + data.get(2).trim()));
-                                    if (ActivityCompat.checkSelfPermission(Info.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                                    if (ActivityCompat.checkSelfPermission(InfoActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                                         return;
                                     }
                                     startActivity(callIntent);
                                 } catch (Exception e) {
-                                    Toast.makeText(Info.this, "Greška",
+                                    Toast.makeText(InfoActivity.this, "Greška",
                                             Toast.LENGTH_LONG).show();
                                 }
                             }
@@ -144,7 +144,7 @@ public class Info extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (Objects.equals(data.get(3), "nepoznato")) {
-                    new AlertDialog.Builder(Info.this)
+                    new AlertDialog.Builder(InfoActivity.this)
                             .setTitle("Email")
                             .setMessage("Ova ljekarna nema email adresu!")
                             .setNegativeButton("Ok", new DialogInterface.OnClickListener() {
@@ -155,7 +155,7 @@ public class Info extends AppCompatActivity {
                             .setIcon(R.drawable.mail)
                             .show();
                 } else {
-                    new AlertDialog.Builder(Info.this)
+                    new AlertDialog.Builder(InfoActivity.this)
                             .setTitle("Email")
                             .setMessage("Želite li poslati email ljekarni " + name + "?")
                             .setPositiveButton("Da", new DialogInterface.OnClickListener() {
@@ -167,7 +167,7 @@ public class Info extends AppCompatActivity {
                                     try {
                                         startActivity(Intent.createChooser(mailIntent, "Send mail..."));
                                     } catch (android.content.ActivityNotFoundException ex) {
-                                        Toast.makeText(Info.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(InfoActivity.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             })

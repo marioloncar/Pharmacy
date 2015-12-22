@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.mario.pharmacy.MainActivity">
+    <item
+        android:id="@+id/map"
+        android:orderInCategory="100"
+        android:title="Map"
+        android:icon="@drawable/map"
+        app:showAsAction="never" />
+</menu>
