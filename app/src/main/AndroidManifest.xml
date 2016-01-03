@@ -8,7 +8,7 @@
          location permissions for the 'MyLocation' functionality. 
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -30,23 +30,25 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".Splash"
-            android:label="Pharmacy">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />>
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+            android:name=".Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                >
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps">
+            android:label="Map">
             <intent-filter>
                 <action android:name="com.mario.pharmacy.MAPSACTIVITY" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".Info"
+        <activity
+            android:name=".InfoActivity"
+            android:label="Info"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="com.mario.pharmacy.INFO" />
@@ -54,11 +56,27 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
-             App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+        <activity
+            android:name=".SearchActivity"
+            android:label="search pharmacies"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.mario.pharmacy.SEARCHACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!--
+             ATTENTION: This was auto-generated to add Google Play services to your project for
+             App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

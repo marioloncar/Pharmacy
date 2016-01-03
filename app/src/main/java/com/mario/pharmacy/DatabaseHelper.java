@@ -32,6 +32,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static String MAIL = "mail";
     private static String WORKDAY = "workday";
     private static String SATURDAY = "saturday";
+    private static String NAME_FAVORITE = "name_favorite";
 
     private static final int VERSION = 1;
     private static File DATABASE_FILE;
@@ -51,7 +52,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return mInstance;
     }
 
-    DatabaseHelper(Context context) {
+    public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, VERSION);
         this.mContext = context;
 
@@ -161,6 +162,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+
     //query for getting latitude from database
     public ArrayList<String> getLatitude() {
         DatabaseHelper helper = DatabaseHelper.getInstance(mContext);
@@ -202,6 +204,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = helper.getReadableDatabase();
 
         String sqlQuery = "SELECT " + DatabaseHelper.NAME + " FROM " + DatabaseHelper.TABLE_NAME;
+        Cursor cursor = db.rawQuery(sqlQuery, null);
+
+        ArrayList<String> values = new ArrayList<>();
+
+        while (cursor.moveToNext()) {
+            values.add(cursor.getString(0));
+        }
+
+        cursor.close();
+        db.close();
+
+        return values;
+    }
+
+    public ArrayList<String> getByInput(String input) throws SQLiteException{
+        DatabaseHelper helper = DatabaseHelper.getInstance(mContext);
+        SQLiteDatabase db = helper.getReadableDatabase();
+
+        String sqlQuery = "SELECT " + DatabaseHelper.NAME + " FROM " + DatabaseHelper.TABLE_NAME + " WHERE " + DatabaseHelper.NAME + " MATCHES '" + input + "';";
         Cursor cursor = db.rawQuery(sqlQuery, null);
 
         ArrayList<String> values = new ArrayList<>();

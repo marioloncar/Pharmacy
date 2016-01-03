@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -7,6 +8,7 @@
         android:id="@+id/ivPicture"
         android:layout_width="match_parent"
         android:layout_height="150dp"
+        android:contentDescription="Picture of pharmacy"
         android:scaleType="fitXY" />
 
     <TextView
@@ -217,5 +219,21 @@
                 android:textSize="18sp" />
         </RelativeLayout>
     </ScrollView>
+
+    <android.support.design.widget.CoordinatorLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="false"
+        tools:context="com.mario.pharmacy.InfoActivity">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            android:src="@drawable/favorite"
+            app:rippleColor="@color/colorPrimaryLight" />
+    </android.support.design.widget.CoordinatorLayout>
 
 </RelativeLayout>

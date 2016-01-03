@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Pharmacy</string>
     <string name="title_activity_maps">Pharmacy</string>
+    <string name="title_activity_main">Pharmacy</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="hint">Upišite naziv ljekarne</string>
 </resources>

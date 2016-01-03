@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -82,6 +84,16 @@ public class InfoActivity extends AppCompatActivity {
         longitude = Double.parseDouble(data.get(7));
 
         coordinates = new LatLng(latitude, longitude);
+
+        FloatingActionButton fab_favorite = (FloatingActionButton) findViewById(R.id.fab_favorite);
+        fab_favorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //helper.insertData(name);
+                Snackbar.make(view, "Dodano u favorite", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
 
         //handle navigation button click
         ibNavigation.setOnClickListener(new View.OnClickListener() {
