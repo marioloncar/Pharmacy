@@ -14,8 +14,9 @@ It demonstrates basic implementation of imageView, scrollView, imageButton, text
 
 <img src="https://github.com/marioloncar/Pharmacy/blob/master/screenshots/splash.png" width="190" height="320">
 <img src="https://github.com/marioloncar/Pharmacy/blob/master/screenshots/markers.png" width="190" height="320">
-<img src="https://github.com/marioloncar/Pharmacy/blob/master/screenshots/info.png" width="190" height="320">
+<img src="https://github.com/marioloncar/Pharmacy/blob/master/screenshots/info_activity.png" width="190" height="320">
 <img src="https://github.com/marioloncar/Pharmacy/blob/master/screenshots/navigation_dialog.png" width="190" height="320">
 <img src="https://github.com/marioloncar/Pharmacy/blob/master/screenshots/call_dialog.png" width="190" height="320">
 <img src="https://github.com/marioloncar/Pharmacy/blob/master/screenshots/email_dialog.png" width="190" height="320">
 <img src="https://github.com/marioloncar/Pharmacy/blob/master/screenshots/noEmail_dialog.png" width="190" height="320">
+<img src="https://github.com/marioloncar/Pharmacy/blob/master/screenshots/home_activity.png" width="190" height="320">
