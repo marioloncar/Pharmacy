@@ -12,7 +12,7 @@ import android.os.Handler;
 public class Splash extends Activity {
 
     //Duration of splash
-    private final int SPLASH_DISPLAY_LENGTH = 1000;
+    private final int SPLASH_DISPLAY_LENGTH = 500;
 
     @Override
     public void onCreate(Bundle icicle) {

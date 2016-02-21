@@ -132,11 +132,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(map);
             return true;
         }
-        if (id == R.id.action_search) {
-            Intent search = new Intent(this, SearchActivity.class);
-            startActivity(search);
-            return true;
-        }
 
 
         return super.onOptionsItemSelected(item);
