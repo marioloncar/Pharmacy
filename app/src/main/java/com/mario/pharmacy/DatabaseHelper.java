@@ -32,7 +32,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static String MAIL = "mail";
     private static String WORKDAY = "workday";
     private static String SATURDAY = "saturday";
-    private static String NAME_FAVORITE = "name_favorite";
 
     private static final int VERSION = 1;
     private static File DATABASE_FILE;
@@ -218,25 +217,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return values;
     }
 
-    public ArrayList<String> getByInput(String input) throws SQLiteException{
-        DatabaseHelper helper = DatabaseHelper.getInstance(mContext);
-        SQLiteDatabase db = helper.getReadableDatabase();
-
-        String sqlQuery = "SELECT " + DatabaseHelper.NAME + " FROM " + DatabaseHelper.TABLE_NAME + " WHERE " + DatabaseHelper.NAME + " MATCHES '" + input + "';";
-        Cursor cursor = db.rawQuery(sqlQuery, null);
-
-        ArrayList<String> values = new ArrayList<>();
-
-        while (cursor.moveToNext()) {
-            values.add(cursor.getString(0));
-        }
-
-        cursor.close();
-        db.close();
-
-        return values;
-    }
-
     public ArrayList<String> getAddress() {
         DatabaseHelper helper = DatabaseHelper.getInstance(mContext);
         SQLiteDatabase db = helper.getReadableDatabase();
@@ -256,7 +236,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return values;
     }
 
-    //query for getting Rating from database
     public ArrayList<String> getData(String name) {
         DatabaseHelper helper = DatabaseHelper.getInstance(mContext);
         SQLiteDatabase db = helper.getReadableDatabase();

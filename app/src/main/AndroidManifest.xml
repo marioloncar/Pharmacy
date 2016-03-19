@@ -39,7 +39,7 @@
         </activity>
         <activity
             android:name=".MapsActivity"
-            android:label="Map">
+            android:label="Karta">
             <intent-filter>
                 <action android:name="com.mario.pharmacy.MAPSACTIVITY" />
 
@@ -48,7 +48,7 @@
         </activity>
         <activity
             android:name=".InfoActivity"
-            android:label="Info"
+            android:label="Informacije"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="com.mario.pharmacy.INFO" />
@@ -65,8 +65,7 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:name=".MainActivity" />
     </application>
 
 </manifest>

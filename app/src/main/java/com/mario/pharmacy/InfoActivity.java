@@ -85,15 +85,6 @@ public class InfoActivity extends AppCompatActivity {
 
         coordinates = new LatLng(latitude, longitude);
 
-        FloatingActionButton fab_favorite = (FloatingActionButton) findViewById(R.id.fab_favorite);
-        fab_favorite.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //helper.insertData(name);
-                Snackbar.make(view, "Dodano u favorite", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         //handle navigation button click
         ibNavigation.setOnClickListener(new View.OnClickListener() {
