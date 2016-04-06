@@ -11,12 +11,14 @@ This application was made for CASE 27 conference in Zagreb, July 2015 as an exam
 It demonstrates basic implementation of imageView, scrollView, imageButton, textView, alertDialog, sending data with intent, SQLite database, splash screen.
 
 ## Screenshots
-
-<img src="https://github.com/marioloncar/Pharmacy/blob/master/screenshots/splash.png" width="190" height="320">
+<p align="center">
+<img src="https://github.com/marioloncar/Pharmacy/blob/master/screenshots/splash.png" width="190" height="320"></p>
+<p align="center">
 <img src="https://github.com/marioloncar/Pharmacy/blob/master/screenshots/markers.png" width="190" height="320">
 <img src="https://github.com/marioloncar/Pharmacy/blob/master/screenshots/info_activity.png" width="190" height="320">
 <img src="https://github.com/marioloncar/Pharmacy/blob/master/screenshots/navigation_dialog.png" width="190" height="320">
 <img src="https://github.com/marioloncar/Pharmacy/blob/master/screenshots/call_dialog.png" width="190" height="320">
 <img src="https://github.com/marioloncar/Pharmacy/blob/master/screenshots/email_dialog.png" width="190" height="320">
 <img src="https://github.com/marioloncar/Pharmacy/blob/master/screenshots/noEmail_dialog.png" width="190" height="320">
+</p>
 <img src="https://github.com/marioloncar/Pharmacy/blob/master/screenshots/home_activity.png" width="190" height="320">
