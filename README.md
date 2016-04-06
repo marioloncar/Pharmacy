@@ -1,5 +1,8 @@
 # Pharmacy
 
+<b>Android developer:</b> Mario Lončar
+<b>iOS developer:</b> Jasmin Abou Aldan (github.com/jabou/Pharmacy-Rijeka)
+
 ## Synopsis
 
 This applications uses Google Maps to show locations of pharmacies in city of Rijeka. When user click on marker, the name of the pharmacy and its address are shown. You can click on a info window to see more info about specific pharmacy such as: photo of the pharmacy, name, address, contacts, duty dates, working hours. User can also start navigation, send email or call chosen pharmacy.
