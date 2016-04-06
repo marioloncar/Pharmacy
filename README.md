@@ -1,7 +1,9 @@
 # Pharmacy
 
 <b>Android developer:</b> Mario Lončar
+<br>
 <b>iOS developer:</b> Jasmin Abou Aldan (github.com/jabou/Pharmacy-Rijeka)
+<br>
 
 ## Synopsis
 
