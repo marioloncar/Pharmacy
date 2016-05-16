@@ -8,7 +8,6 @@
         android:id="@+id/ivPicture"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:contentDescription="Picture of pharmacy"
         android:scaleType="fitXY" />
 
     <TextView
@@ -18,7 +17,7 @@
         android:layout_below="@+id/ivPicture"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:text="Naslov"
+        android:text="Title"
         android:textColor="@color/colorPrimaryText"
         android:textSize="24sp" />
 
@@ -47,7 +46,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="10dp"
                 android:gravity="center_vertical"
-                android:text="Adresa:"
+                android:text="Address:"
                 android:textColor="@color/colorPrimaryText"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -61,17 +60,16 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/navigation"
-                android:scaleType="fitXY" />
+                android:scaleType="fitCenter" />
 
             <TextView
                 android:id="@+id/tvAddress"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_alignBottom="@+id/ibNavigation"
-                android:layout_marginStart="23dp"
-                android:layout_toEndOf="@+id/ibNavigation"
+                android:layout_below="@+id/textView2"
+                android:layout_toEndOf="@+id/textView5"
                 android:gravity="center_vertical"
-                android:text="Adresa"
+                android:text="Address"
                 android:textColor="@color/colorPrimaryText"
                 android:textSize="18sp" />
 
@@ -83,7 +81,7 @@
                 android:layout_below="@+id/ibNavigation"
                 android:layout_marginTop="5dp"
                 android:gravity="center_vertical"
-                android:text="Kontakt:"
+                android:text="Contact:"
                 android:textColor="@color/colorPrimaryText"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -97,15 +95,14 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/phone"
-                android:scaleType="fitXY" />
+                android:scaleType="fitCenter" />
 
             <TextView
                 android:id="@+id/tvPhone"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_alignBottom="@+id/ibPhone"
-                android:layout_marginStart="23dp"
-                android:layout_toEndOf="@+id/ibPhone"
+                android:layout_alignStart="@+id/tvAddress"
+                android:layout_below="@+id/textView3"
                 android:gravity="center_vertical"
                 android:text="Phone"
                 android:textColor="@color/colorPrimaryText"
@@ -119,15 +116,14 @@
                 android:layout_below="@+id/ibPhone"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/mail"
-                android:scaleType="fitXY" />
+                android:scaleType="fitCenter" />
 
             <TextView
                 android:id="@+id/tvEmail"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_alignBottom="@+id/ibEmail"
-                android:layout_marginStart="23dp"
-                android:layout_toEndOf="@+id/ibEmail"
+                android:layout_alignStart="@+id/tvPhone"
+                android:layout_below="@+id/ibPhone"
                 android:gravity="center_vertical"
                 android:text="Email"
                 android:textColor="@color/colorPrimaryText"
@@ -141,7 +137,7 @@
                 android:layout_below="@+id/ibEmail"
                 android:layout_marginTop="5dp"
                 android:gravity="center_vertical"
-                android:text="Radno vrijeme:"
+                android:text="Working hours:"
                 android:textColor="@color/colorPrimaryText"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -150,11 +146,10 @@
                 android:id="@+id/tvRadniDan"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:layout_alignParentStart="@+id/ibEmail"
+                android:layout_alignStart="@+id/ibEmail"
                 android:layout_below="@+id/textView4"
-                android:layout_marginStart="23dp"
                 android:gravity="center_vertical"
-                android:text="Radni dan:"
+                android:text="Workday:"
                 android:textColor="@color/colorPrimaryText"
                 android:textSize="18sp" />
 
@@ -174,11 +169,10 @@
                 android:id="@+id/tvSubota"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:layout_alignParentStart="@+id/tvRadniDan"
-                android:layout_below="@+id/tvRadniDan"
-                android:layout_marginStart="23dp"
+                android:layout_alignStart="@+id/tvRadniDan"
+                android:layout_alignTop="@+id/tvSaturday"
                 android:gravity="center_vertical"
-                android:text="Subota:"
+                android:text="Saturday:"
                 android:textColor="@color/colorPrimaryText"
                 android:textSize="18sp" />
 
@@ -201,7 +195,7 @@
                 android:layout_below="@+id/tvSubota"
                 android:layout_marginTop="5dp"
                 android:gravity="center_vertical"
-                android:text="Dežurna:"
+                android:text="All night:"
                 android:textColor="@color/colorPrimaryText"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -210,11 +204,10 @@
                 android:id="@+id/tvDezurna"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:layout_alignParentStart="@+id/tvSubota"
+                android:layout_alignStart="@+id/tvSubota"
                 android:layout_below="@+id/textView5"
-                android:layout_marginStart="23dp"
                 android:gravity="center_vertical"
-                android:text="nepoznato"
+                android:text="Unknown"
                 android:textColor="@color/colorPrimaryText"
                 android:textSize="18sp" />
         </RelativeLayout>

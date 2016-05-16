@@ -1,7 +1,9 @@
 package com.mario.pharmacy;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -40,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 TextView name = (TextView) view.findViewById(R.id.tvName);
                 info.putExtra("name", name.getText().toString());
                 startActivity(info);
+
             }
         });
     }
