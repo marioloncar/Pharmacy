@@ -1,9 +1,7 @@
 package com.mario.pharmacy;
 
-import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -18,6 +16,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import dalvik.annotation.TestTarget;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         pharmacies = (ListView) findViewById(R.id.lvPharmacies);
         helper = new DatabaseHelper(this);
 
+
         pharmacies.setAdapter(new MyListAdapter(this));
         pharmacies.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
     }
 
     @Override

@@ -35,13 +35,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final int VERSION = 1;
     private static File DATABASE_FILE;
-
     private boolean mInvalidDatabaseFile = false;
     private boolean mIsUpgraded = false;
     private Context mContext;
-
     private int mOpenConnections = 0;
-
     private static DatabaseHelper mInstance;
 
     synchronized static public DatabaseHelper getInstance(Context context) {
@@ -241,7 +238,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = helper.getReadableDatabase();
         ArrayList<String> values = new ArrayList<>();
 
-        String sqlQuery = "SELECT " + DatabaseHelper.ADDRESS + "," + DatabaseHelper.PICTURE + "," + DatabaseHelper.PHONE + "," + DatabaseHelper.MAIL + "," + DatabaseHelper.WORKDAY + "," + DatabaseHelper.SATURDAY + "," + DatabaseHelper.LATITUDE + "," + DatabaseHelper.LONGITUDE + " FROM " + DatabaseHelper.TABLE_NAME + " WHERE " + DatabaseHelper.NAME + "=\"" + name + "\";";
+        String sqlQuery = "SELECT " + DatabaseHelper.ADDRESS + "," + DatabaseHelper.PICTURE + "," + DatabaseHelper.PHONE + ","
+                + DatabaseHelper.MAIL + "," + DatabaseHelper.WORKDAY + "," + DatabaseHelper.SATURDAY
+                + "," + DatabaseHelper.LATITUDE + "," + DatabaseHelper.LONGITUDE + " FROM "
+                + DatabaseHelper.TABLE_NAME + " WHERE " + DatabaseHelper.NAME + "=\"" + name + "\";";
 
         Cursor cursor = db.rawQuery(sqlQuery, null);
         cursor.moveToFirst();

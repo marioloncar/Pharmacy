@@ -92,7 +92,7 @@ public class InfoActivity extends AppCompatActivity {
         coordinates = new LatLng(latitude, longitude);
 
 
-        //handle navigation button click
+        //Handles navigation button click
         ibNavigation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,8 +101,11 @@ public class InfoActivity extends AppCompatActivity {
                         .setMessage("Are you sure you want to start navigation to " + data.get(0) + "?")
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-                                Intent mapsIntent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse("http://maps.google.com/maps?&daddr=" + latitude + "," + longitude));
-                                mapsIntent.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
+                                Intent mapsIntent = new Intent(android.content.Intent.ACTION_VIEW,
+                                        Uri.parse("http://maps.google.com/maps?&daddr=" + latitude + ","
+                                                                                        + longitude));
+                                mapsIntent.setClassName("com.google.android.apps.maps",
+                                                        "com.google.android.maps.MapsActivity");
                                 startActivity(mapsIntent);
                             }
                         })
@@ -123,7 +126,7 @@ public class InfoActivity extends AppCompatActivity {
                 new AlertDialog.Builder(InfoActivity.this)
                         .setTitle("Call")
                         .setMessage("Are you sure you want to call number " + data.get(2) + "?")
-                        .setPositiveButton("Da", new DialogInterface.OnClickListener() {
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 try {
                                     if (checkPermission(Manifest.permission.CALL_PHONE, getApplicationContext(), InfoActivity.this)) {
@@ -131,16 +134,17 @@ public class InfoActivity extends AppCompatActivity {
                                         callIntent.setData(Uri.parse("tel:" + data.get(2).trim()));
                                         startActivity(callIntent);
                                     } else {
-                                        requestPermission(Manifest.permission.CALL_PHONE, PERMISSION_REQUEST_CODE_CALL, getApplicationContext(), InfoActivity.this);
+                                        requestPermission(Manifest.permission.CALL_PHONE, PERMISSION_REQUEST_CODE_CALL,
+                                                getApplicationContext(), InfoActivity.this);
 
                                     }
                                 } catch (Exception e) {
-                                    Toast.makeText(InfoActivity.this, "Greška",
+                                    Toast.makeText(InfoActivity.this, "Error",
                                             Toast.LENGTH_LONG).show();
                                 }
                             }
                         })
-                        .setNegativeButton("Odustani", new DialogInterface.OnClickListener() {
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 //dismiss
                             }
@@ -169,7 +173,7 @@ public class InfoActivity extends AppCompatActivity {
                     new AlertDialog.Builder(InfoActivity.this)
                             .setTitle("Email")
                             .setMessage("Are you sure you want to send email to " + name + "?")
-                            .setPositiveButton("Da", new DialogInterface.OnClickListener() {
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
                                     Intent mailIntent = new Intent(Intent.ACTION_SEND);
                                     mailIntent.setType("message/rfc822");
@@ -182,7 +186,7 @@ public class InfoActivity extends AppCompatActivity {
                                     }
                                 }
                             })
-                            .setNegativeButton("Odustani", new DialogInterface.OnClickListener() {
+                            .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
                                     //dismiss
                                 }
